@@ -1,0 +1,27 @@
+<div>
+    <h1 style="text-align: center;">To-Do Page</h1>
+    <mat-accordion>
+    <div class="container-fluid">
+        <div *ngFor="let todo of todos;let todoData = index">
+            <div *ngIf = "todoData < 20">
+                <mat-expansion-panel (opened)="getDetails(todo.id)" hideToggle >
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            {{todo.id}}
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            {{todo.title}}
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <span #details *ngIf="todoDetails!= undefined">
+                            <br><p> userId : {{todoDetails.userId}}</p>
+                            <br><p>id : {{todoDetails.id}} </p>
+                            <br><p> title : {{todoDetails.title}}</p>
+                            <br><p> completed: {{todoDetails.completed}}</p> 
+                       </span>
+                      </mat-expansion-panel>
+            </div>
+        </div>
+    </div>
+</mat-accordion>
+</div>

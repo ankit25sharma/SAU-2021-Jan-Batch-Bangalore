@@ -1,0 +1,32 @@
+<h1 >Accolite University Sessions</h1>
+<div class="container">
+    <mat-accordion>
+        <div *ngFor="let session of sessionList;let i = index">
+          <mat-expansion-panel [expanded]='session.editable'>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{session.sname}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            Session Name : 
+            <input matInput type="text" [disabled]="!session.editable" [(ngModel)]="session.sname"/>
+            <br><br>
+            Trainer's Name : 
+            <input matInputtype="text" [disabled]="!session.editable" [value]="session.trainer" />
+            <br><br>
+            Date : 
+            <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly [disabled]="!session.editable" [value]="session.date " />
+            <mat-action-row >
+              <button mat-button mat-stroked-button color="primary" *ngIf="(!session.editable)" (click)="edit(i)">Edit</button>
+              <button mat-button mat-stroked-button color="primary" *ngIf="(session.editable)" (click)="save(i)">Save</button>
+              <button mat-button mat-flat-button color="warn" (click)="delete(i)">Delete</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </div>
+        <button mat-button mat-flat-button color="primary" (click)="add()" id ="addBtn" style="margin-left: 45%;margin-top: 5%;" >Add New Session</button>
+      </mat-accordion>
+      <div>
+        <a routerLink ="todo-api">Get todo data</a>
+      </div>
+      
+    </div>
