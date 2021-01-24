@@ -4,18 +4,19 @@ public class Assignment1
 {
 	public static void main(String[] args) 
 	{
-	       ArrayList<Integer> list = new ArrayList<Integer>();   
-                list.add(7);   
-                list.add(3);   
-                list.add(1);   
-                list.add(89);   
-                list.add(65);   
-                list.add(34);   
-                list.add(97);  
-                list.add(39);  
-                System.out.println("Before Sorting: "+ list);   
-                Collections.sort(list);   
-                System.out.println("After Sorting: "+ list); 
+	       	HashSet<Integer> hs = new HashSet<Integer>();   
+                hs.add(7);   
+                hs.add(3);   
+                hs.add(1);   
+                hs.add(89);   
+                hs.add(65);   
+                hs.add(34);   
+                hs.add(97);  
+                hs.add(39);  
+                System.out.println("Before Sorting: "+ hs);
+		List<Integer> ls = new ArrayList<>(hs);
+                Collections.sort(ls);   
+                System.out.println("After Sorting: "+ ls); 
 		
 	}
 }
