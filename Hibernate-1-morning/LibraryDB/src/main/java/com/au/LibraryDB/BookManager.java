@@ -61,15 +61,19 @@ public class BookManager {
 		try {
 			tx = session.beginTransaction();
 			List<Book> books = session.createQuery("FROM Book").list();
-			System.out.println("\nAvailable Books: ");
-			System.out.println();
-			for(Book book: books) {
-				System.out.println("ID: "+book.getId());
-				System.out.println("Name: "+book.getName());
-				System.out.println("Price: "+book.getPrice());
-				System.out.println("Author: "+book.getAuthorName());
+			if(books.size()!=0) {
+				System.out.println("\nAvailable Books: ");
 				System.out.println();
-				System.out.println("===========================================================================================");
+				for(Book book: books) {
+					System.out.println("ID: "+book.getId());
+					System.out.println("Name: "+book.getName());
+					System.out.println("Price: "+book.getPrice());
+					System.out.println("Author: "+book.getAuthorName());
+					System.out.println();
+					System.out.println("===========================================================================================");
+				}
+			} else {
+				System.out.println("\nSorry! No Books Available");
 			}
 			tx.commit();
 		} catch (Exception e) {
